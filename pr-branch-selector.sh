@@ -26,11 +26,17 @@ PS3=$'\e[0;31mSelect a target branch to merge into: \e[0m'
 options=($gitRemoteBranches)
 select opt in "${options[@]}"
 do
-  if [[ $opt ]]; then
+  if [[ $opt ]] 
+  then
     targetBranch=$opt
     echo "Selected target branch to merge into: ${YELLOW}${targetBranch}${NC}" && 
     echo "Browser opening..." &&
     open -a "Google Chrome" https://github.com/$repoURL/compare/$targetBranch...$currentBranch
+    echo "opt ${opt}"
+    break
+  elif [ $REPLY == '0' ]
+  then
+    echo "Cancelled"
     break
   else
     echo "Please enter a valid number !!"
