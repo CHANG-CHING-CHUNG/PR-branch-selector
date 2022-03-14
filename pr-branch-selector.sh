@@ -19,7 +19,7 @@ elif [[ $gitRepoURL =~ ^(git@) ]] && [[ $gitRepoURL =~ :(.*).git ]]
 then
   repoURL=${BASH_REMATCH[1]}
 fi
-echo  "${RED}Your Current Branch${YELLOW}: ${repoURL}${NC}"
+echo  "${RED}Your Current Branch${YELLOW}: ${currentBranch}${NC}"
 
 echo "${LIGHT_GREEN}Remote Branch List: ${NC}"
 PS3=$'\e[0;31mSelect a target branch to merge into: \e[0m'
